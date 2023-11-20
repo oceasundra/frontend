@@ -7,7 +7,7 @@ const services = [
   {
     name: "Backend",
     description:
-      "I have experience in developing and managing the server side of websites. I am skilled in managing databases, as well as developing APIs that enable communication between frontend and backend.",
+      "I'm experienced in server-side web development, proficient in database management, and adept at creating APIs for seamless frontend-backend communication.",
   },
   {
     name: "Frontend",
