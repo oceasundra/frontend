@@ -5,7 +5,7 @@ import './index.css';
 import axios from 'axios';
 import { RecoilRoot } from 'recoil';
 
-axios.defaults.baseURL = "https://backend-ljg606e5p-firda-rahayus-projects.vercel.app/api/"
+axios.defaults.baseURL = "https://backend-ljg606e5p-firda-rahayus-projects.vercel.app/api/api"
 axios.interceptors.request.use((config) => {
   config.headers.Authorization = `Bearer ${localStorage.getItem('tokenUser')}`
   return config
