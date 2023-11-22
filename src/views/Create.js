@@ -4,16 +4,17 @@ import { useNavigate } from 'react-router-dom';
 
 const Create = () => {
   const [title, setTitle] = useState('');
-  const [image, setImage] = useState('');
   const [url, setUrl] = useState('');
   const [desc, setDesc] = useState('');
+  const [image, setImage] = useState('');
 
   const [errors, setErrors] = useState([]);
 
   const navigate = useNavigate();
 
   const handleFileChange = (e) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    setImage(file);
   }
 
   const storeProject = async (e) => {

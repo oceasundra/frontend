@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import { BsArrowUpRight } from 'react-icons/bs'
-// import Img1 from "../assets/portfolio-img1.png";
-// import Img2 from "../assets/portfolio-img2.png";
-// import Img3 from "../assets/portfolio-img3.png";
 import axios from "axios";
 
 const Work = () => {
