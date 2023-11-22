@@ -81,7 +81,7 @@ const Work = () => {
                   <div className="absolute -bottom-full left-12 group-hover:bottom-10 transition-all duration-700 z-50">
                     <p className="text-white">{project.desc}</p>
                   </div>
-                  <div className="absolute -bottom-full right-6 group-hover:bottom-56 transition-all duration-500 z-50">
+                  <div className="absolute -bottom-full right-6 group-hover:top-10 transition-all duration-500 z-50">
                     <a href={project.url} className="btn w-9 h-9 mb-[42px] flex justify-center items-center" target="_blank">
                       <BsArrowUpRight />
                     </a>
@@ -121,10 +121,10 @@ const Work = () => {
                     <div className="absolute -bottom-full left-12 group-hover:bottom-24 transition-all duration-500 z-50">
                       <span className="text-gradient">{project.title}</span>
                     </div>
-                    <div className="absolute -bottom-full left-12 group-hover:bottom-14 transition-all duration-700 z-50">
+                    <div className="absolute -bottom-full left-12 group-hover:bottom-10 transition-all duration-700 z-50">
                       <p className="text-white">{project.desc}</p>
                     </div>
-                    <div className="absolute -bottom-full right-6 group-hover:bottom-56 transition-all duration-500 z-50">
+                    <div className="absolute -bottom-full right-6 group-hover:top-10 transition-all duration-500 z-50">
                     <a href={project.url} className="btn w-9 h-9 mb-[42px] flex justify-center items-center" target="_blank">
                       <BsArrowUpRight />
                     </a>
