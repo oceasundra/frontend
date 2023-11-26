@@ -130,8 +130,8 @@ const Contact = () => {
 
       {errorMessage && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-purple-500 p-8 rounded-lg">
-            <p className="text-red-500 text-bold">{errorMessage}</p>
+          <div className="bg-red-500 p-8 rounded-lg">
+            <p className="text-white text-bold">{errorMessage}</p>
           </div>
         </div>
       )}
