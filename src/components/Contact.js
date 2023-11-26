@@ -24,11 +24,19 @@ const Contact = () => {
           console.log("message sent");
           setIsMessageSent(true);
           setErrorMessage("");
+
+          setTimeout(() => {
+            setIsMessageSent(false);
+          }, 3000);
         },
         (error) => {
           console.log(error.text);
           setIsMessageSent(false);
           setErrorMessage("Error sending message. Please try again later.");
+
+          setTimeout(() => {
+            setErrorMessage('');
+          }, 3000);
         }
       );
   };
@@ -88,20 +96,20 @@ const Contact = () => {
 
       {isMessageSent && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg">
-            <p className="text-green-500">Message sent successfully!</p>
+          <div className="bg-purple-500 p-8 rounded-lg">
+            <p className="text-white text-bold">Message sent successfully!</p>
           </div>
         </div>
       )}
 
       {errorMessage && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg">
-            <p className="text-red-500">{errorMessage}</p>
+          <div className="bg-purple-500 p-8 rounded-lg">
+            <p className="text-red-500 text-bold">{errorMessage}</p>
           </div>
         </div>
       )}
-      
+
     </section>
   );
 };
