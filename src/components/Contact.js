@@ -1,21 +1,36 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const form = useRef();
+  const [isMessageSent, setIsMessageSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_ucmzioa', 'template_kdz0ctf', form.current, '_ZM6fRiaZmXleJEMu')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "service_ucmzioa",
+        "template_kdz0ctf",
+        form.current,
+        "_ZM6fRiaZmXleJEMu"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
           console.log("message sent");
-      }, (error) => {
+          setIsMessageSent(true);
+          setErrorMessage("");
+        },
+        (error) => {
           console.log(error.text);
-      });
+          setIsMessageSent(false);
+          setErrorMessage("Error sending message. Please try again later.");
+        }
+      );
   };
 
   return (
@@ -50,26 +65,45 @@ const Contact = () => {
             <input
               className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
               type="text"
-              name='user_name'
+              name="user_name"
               placeholder="Your name"
             />
             <input
               className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
               type="email"
-              name='user_email'
+              name="user_email"
               placeholder="Your email"
             />
             <textarea
               className="bg-transparent border-b py-12 outline-none w-full placeholder:text-white focus:border-accent transition-all resize-none mb-12"
               placeholder="Your message"
-              name='message'
+              name="message"
             ></textarea>
-            <button type='submit' className="btn btn-lg">Send message</button>
+            <button type="submit" className="btn btn-lg">
+              Send message
+            </button>
           </motion.form>
         </div>
       </div>
-    </section>
-  )
-}
 
-export default Contact
+      {isMessageSent && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded-lg">
+            <p className="text-green-500">Message sent successfully!</p>
+          </div>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded-lg">
+            <p className="text-red-500">{errorMessage}</p>
+          </div>
+        </div>
+      )}
+      
+    </section>
+  );
+};
+
+export default Contact;
