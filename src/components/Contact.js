@@ -8,6 +8,12 @@ const Contact = () => {
   const [isMessageSent, setIsMessageSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const [formData, setFormData] = useState({
+    user_name: '',
+    user_email: '',
+    message: ''
+  });
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -25,6 +31,12 @@ const Contact = () => {
           setIsMessageSent(true);
           setErrorMessage("");
 
+          setFormData({
+            user_name: '',
+            user_email: '',
+            message: ''
+          });
+
           setTimeout(() => {
             setIsMessageSent(false);
           }, 3000);
@@ -39,6 +51,14 @@ const Contact = () => {
           }, 3000);
         }
       );
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
   return (
@@ -75,17 +95,23 @@ const Contact = () => {
               type="text"
               name="user_name"
               placeholder="Your name"
+              value={formData.user_name}
+              onChange={handleInputChange}
             />
             <input
               className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
               type="email"
               name="user_email"
               placeholder="Your email"
+              value={formData.user_email}
+              onChange={handleInputChange}
             />
             <textarea
               className="bg-transparent border-b py-12 outline-none w-full placeholder:text-white focus:border-accent transition-all resize-none mb-12"
               placeholder="Your message"
               name="message"
+              value={formData.message}
+              onChange={handleInputChange}
             ></textarea>
             <button type="submit" className="btn btn-lg">
               Send message
